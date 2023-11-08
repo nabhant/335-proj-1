@@ -31,7 +31,7 @@
          */
         template <typename CardType>
        CardType&& Deck<CardType>::Draw(){
-            if(!isEmpty()){
+            if(!IsEmpty()){
                 CardType&& drawnCard = std::move(cards_.back());
                 cards_.pop_back();
                 return std::move(drawnCard);

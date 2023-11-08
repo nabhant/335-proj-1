@@ -118,6 +118,9 @@
     s score
     */
     void Player::playPointCard() {
+        if(hand_.isEmpty()){
+            throw std::runtime_error("Deck is empty. Cannot draw a card.");
+        }
         setScore(getScore() + hand_.PlayCard());
     };
 

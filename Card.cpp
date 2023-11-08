@@ -83,8 +83,8 @@
          * @post: Construct a new Card object 
          */
         Card::Card(){
-            bitmap_ = new int[80];
             instruction_ = "";
+            bitmap_ = new int[80];
             drawn_ = false;
         }
 

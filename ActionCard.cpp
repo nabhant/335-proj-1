@@ -23,7 +23,7 @@
             }
             
             // Defining regular expressions for the instructions
-            std::regex validInstruction("DRAW|PLAY) (\\d+) CARD\\(S\\)|REVERSE HAND|SWAP HAND WITH OPPONENT");
+            std::regex validInstruction("(DRAW|PLAY) (\\d+) CARD\\(S\\)|REVERSE HAND|SWAP HAND WITH OPPONENT");
             std::string instruction = getInstruction();
 
             // Verify if valid instruction

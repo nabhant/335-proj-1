@@ -13,11 +13,16 @@
          * For a card to be playable, it has to be drawn and the instruction has to be a valid number
         */
         bool PointCard::isPlayable(){
-            if (getDrawn() && isdigit(std::stoi(getInstruction())))
-                return true;
-            else
+            if(getInstruction().empty() || !getDrawn()){
                 return false;
-        } 
+            }
+            for(char i : getInstruction()){
+                if (!isdigit(i)){
+                    return false;
+                }
+            }
+            return true;
+        }
 
         /**
          * @post: Print the Point Card in the following format:

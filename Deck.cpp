@@ -65,7 +65,7 @@
          */
         template <typename CardType>
         int Deck<CardType>::getSize() const{
-            return cards_.length();
+            return cards_.size();
         }
 
         /**

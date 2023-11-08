@@ -14,10 +14,10 @@
          * For a card to be playable, it has to be drawn and the instruction has to be a valid number
         */
         bool PointCard::isPlayable(){
-            if(getInstruction().empty() || !getDrawn()){
+           if(getInstruction().empty() || !getDrawn()){
                 return false;
             }
-            for(char i : getInstruction()){
+            for(char i = 0; i < getInstruction().size(); i++){
                 if (!isdigit(i)){
                     return false;
                 }
@@ -39,12 +39,13 @@
             std::cout<<"Points: "<<getInstruction()<<std::endl;
             std::cout<<"Card: "<<std::endl;
             const int* imgData = getImageData();
-            if (imgData == nullptr)
+            if (imgData == nullptr){
                 std::cout<<"No image data"<<std::endl;
+            }
             else{
                 for (int i = 0; i<=79; i++){
                     std::cout<<imgData[i]<<" ";
                 }
-            }
             std::cout << std::endl;
+            }
         }

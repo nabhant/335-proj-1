@@ -18,8 +18,9 @@
          * SWAP HAND WITH OPPONENT : swap the hand with the opponent
         */
         bool ActionCard::isPlayable(){
-            if (!getDrawn())
+            if (!getDrawn()){
                 return false;
+            }
             
             // Defining regular expressions for the instructions
             std::regex drawPattern(R"(DRAW \d+ CARD\(S\))");
@@ -30,10 +31,12 @@
             std::string instruction = getInstruction();
 
             // Verify if valid instruction
-            if (std::regex_match(instruction, drawPattern) || std::regex_match(instruction, playPattern) || std::regex_match(instruction, reversePattern) || std::regex_match(instruction, swapPattern))
+            if (std::regex_match(instruction, drawPattern) || std::regex_match(instruction, playPattern) || std::regex_match(instruction, reversePattern) || std::regex_match(instruction, swapPattern)){
                 return true;
-            else
+            }
+            else{
                 return false;
+            }
         }
         
 
@@ -52,12 +55,14 @@
             std::cout<<"Instruction: "<<getInstruction()<<std::endl;
             std::cout<<"Card: "<<std::endl;
             const int* imgData = getImageData();
-            if (imgData == nullptr)
+            if (imgData == nullptr){
                 std::cout<<"No image data"<<std::endl;
+            }
             else{
                  for (int i = 0; i <= 79; i++){
                     std::cout<<imgData[i]<<" ";
                 }
-            }
             std::cout << std::endl;
+            }
+            
         }

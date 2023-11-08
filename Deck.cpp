@@ -12,7 +12,7 @@
          */
         template <typename CardType>
         Deck<CardType>::Deck::~Deck(){
-            cards_.clear()      // Just need to empty the vector
+            cards_.clear();      // Just need to empty the vector
         }
 
         /**
@@ -65,7 +65,7 @@
          */
         template <typename CardType>
         int Deck<CardType>::getSize() const{
-            return cards_.size();
+            return cards_.length();
         }
 
         /**

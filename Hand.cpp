@@ -4,9 +4,7 @@
         /**
          * @post: Construct a new Hand object
          */
-        Hand::Hand(){
-            
-        }
+        Hand::Hand(){}
 
         /**
          * @post: Destroy the Hand object
@@ -27,9 +25,10 @@
          * @return this Hand 
          */
         Hand& Hand::operator=(const Hand& other){
-            if (this != &other){
-                cards_ = other.cards_;
+            if (this == &other) { 
+                return *this;
             }
+            cards_ = other.cards_;
             return *this;
         }
 
@@ -48,10 +47,10 @@
          * @return this Hand
          */
         Hand& Hand::operator=(Hand&& other){
-            if (this != &other){
-                cards_ = std::move(other.cards_);
+            if (this == &other){
+                return *this;
             }
-            return *this;
+            cards_ = std::move(other.cards_);
         }
 
         /**
@@ -66,6 +65,7 @@
          * @param PointCard object
          */
         void Hand::addCard(PointCard&& card){
+            card.setDrawn(true);
             cards_.push_back(std::move(card));
         }
 
@@ -80,7 +80,14 @@
          * @post: Reverse the hand
          */
         void Hand::Reverse(){
-            std::reverse(cards_.begin(), cards_.end());
+            int i = 0;
+            int j = cards_.size()-1;
+
+            while (i < j) {
+                std::swap(cards_[i], cards_[j]);
+                i++;
+                j--;
+            }
         }
 
         /**
@@ -90,19 +97,16 @@
          * @return the points earned from playing the card
          */
         int Hand::PlayCard(){
-            if(isEmpty()){
-                throw std::runtime_error("Hand is empty. Cannnot play a card.");
+             if (!isEmpty()) {
+                int points_ = 0; // We will still play the card if its point value is 0
+
+                if(cards_.front().isPlayable()) {
+                    points_ = std::stoi(cards_.front().getInstruction());
+                    cards_.pop_front();
+                    return points_;
+                }
+        
+                cards_.pop_front();
+                return points_;
             }
-
-            // Get the card at the front
-            PointCard frontCard = std::move(cards_.front());
-
-            // Remove the card from your hand
-            cards_.pop_front();
-
-            // Check if the card is playable
-            if (frontCard.isPlayable())
-                return stoi(frontCard.getInstruction()); // Returns the point value
-            else
-                return 0;
         }

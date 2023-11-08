@@ -5,7 +5,7 @@
          * @post: Construct a new Point Card object
          */
         PointCard::PointCard(){
-             
+             setType(POINT_CARD);
         }
         
         /**
@@ -31,15 +31,13 @@
         void PointCard::Print() const{
             std::cout<<"Type: "<<getType()<<std::endl;
             std::cout<<"Points: "<<getInstruction()<<std::endl;
-            std::cout<<"Card:"<<"\n";
+            std::cout<<"Card:"<<std::endl;
             const int* imgData = getImageData();
             if (imgData == nullptr)
                 std::cout<<"No image data"<<std::endl;
             else{
-                while(*imgData != 0){
-                    std::cout<<imgData;
+                for (int i = 0; i<=79; i++){
+                    std::cout<<imgData[i]<<" ";
                 }
             }
-                
-            
         }

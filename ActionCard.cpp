@@ -4,7 +4,7 @@
          * @post: Construct a new Action Card object
         */
         ActionCard::ActionCard(){
-
+            setType(ACTION_CARD);
         }
 
         /**
@@ -29,7 +29,7 @@
             std::string instruction = getInstruction();
 
             // Verify if valid instruction
-            if(std::regex_match(instruction, drawPattern) || std::regex_match(instruction, playPattern) || std::regex_match(instruction, reversePattern) || std::regex_match(instruction, swapPattern))
+            if (std::regex_match(instruction, drawPattern) || std::regex_match(instruction, playPattern) || std::regex_match(instruction, reversePattern) || std::regex_match(instruction, swapPattern))
                 return true;
             else
                 return false;
@@ -50,13 +50,12 @@
             std::cout<<"Type: "<<getType()<<std::endl;
             std::cout<<"Instruction: "<<getInstruction()<<std::endl;
             std::cout<<"Card:"<<std::endl;
-            std::cout<<"Type: "<<getType()<<std::endl;
             const int* imgData = getImageData();
             if (imgData == nullptr)
                 std::cout<<"No image data"<<std::endl;
             else{
-                while(*imgData != 0){
-                    std::cout<<imgData;
+                 for (int i = 0; i <= 79; i++){
+                    std::cout<<imgData[i]<<" ";
                 }
             }
         }

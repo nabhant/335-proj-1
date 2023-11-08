@@ -10,7 +10,9 @@
          * @post: Destroy the Deck object 
          */
         template <typename CardType>
-        Deck<CardType>::Deck::~Deck(){}
+        Deck<CardType>::Deck::~Deck(){
+            cards_.clear()      // Just need to empty the vector
+        }
 
         /**
          * @post: Add a Card to the Deck
@@ -28,11 +30,11 @@
          */
         template <typename CardType>
         Deck<CardType>::CardType&& Draw(){
-            if(isEmpty())
-                throw std::runtime_error("Deck is empty. Cannot draw card.");
-            CardType drawnCard = std::move(cards_.back());
-            cards_.pop_back();
-            return std::move(drawnCard);
+            if(!isEmpty()){
+                CardType&& drawnCard = std::move(cards_.back());
+                cards_.pop_back();
+                return std::move(drawnCard);
+            }
         }
 
         /**
@@ -62,7 +64,7 @@
          */
         template <typename CardType>
         int Deck<CardType>::getSize() const{
-            return cards_.size();
+            return cards_.length();
         }
 
         /**

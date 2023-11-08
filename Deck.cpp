@@ -56,8 +56,8 @@
          */
         template <typename CardType>
         void Deck<CardType>::Shuffle(){
-            std::mt19937 rng(2028358904);  // Initialize the randomizer
-            std::shuffle(cards_.begin(), cards_.end(), rng);
+            std::mt19937 seed_(2028358904);  // Initialize the randomizer
+            std::shuffle(cards_.begin(), cards_.end(), seed_);
         }
 
         /**

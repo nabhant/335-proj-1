@@ -53,6 +53,7 @@
                 return *this;
             }
             cards_ = std::move(other.cards_);
+            return *this;
         }
 
         /**

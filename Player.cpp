@@ -60,7 +60,7 @@
     * PLAYING ACTION CARD: [instruction]
     */
     void Player::play(ActionCard&& card) {
-        std::cout<<"PLAYING ACTION CARD: "<< card.getInstruction();
+        std::cout<<"PLAYING ACTION CARD: "<< card.getInstruction()<<std::endl;
         if(card.getInstruction() == "REVERSE HAND") {    // Check which card and play its action
             hand_.Reverse();
             }

@@ -23,15 +23,11 @@
             }
             
             // Defining regular expressions for the instructions
-            std::regex drawPattern(R"(DRAW \d+ CARD\(S\))");
-            std::regex playPattern(R"(PLAY \d+ CARD\(S\))");
-            std::regex reversePattern(R"(REVERSE HAND)");
-            std::regex swapPattern(R"(SWAP HAND WITH OPPONENT)");
-
+            std::regex validInstruction(R"(DRAW|PLAY) (\\d+) CARD\\(S\\)|REVERSE HAND|SWAP HAND WITH OPPONENT")");
             std::string instruction = getInstruction();
 
             // Verify if valid instruction
-            if (std::regex_match(instruction, drawPattern) || std::regex_match(instruction, playPattern) || std::regex_match(instruction, reversePattern) || std::regex_match(instruction, swapPattern)){
+            if (std::regex_match(instruction, validInstruction)){
                 return true;
             }
             else{
@@ -55,14 +51,14 @@
             std::cout<<"Instruction: "<<getInstruction()<<std::endl;
             std::cout<<"Card: "<<std::endl;
             const int* imgData = getImageData();
-            if (imgData == nullptr){
-                std::cout<<"No image data"<<std::endl;
-            }
-            else{
-                 for (int i = 0; i <= 79; i++){
+            if (imgData != nullptr){
+                for (int i = 0; i <= 80; i++){
                     std::cout<<imgData[i]<<" ";
                 }
-            std::cout << std::endl;
+                std::cout << std::endl;
+            }
+            else{
+                std::cout<<"No image data"<<std::endl;
             }
             
         }

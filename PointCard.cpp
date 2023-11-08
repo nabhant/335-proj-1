@@ -39,13 +39,13 @@
             std::cout<<"Points: "<<getInstruction()<<std::endl;
             std::cout<<"Card: "<<std::endl;
             const int* imgData = getImageData();
-            if (imgData == nullptr){
-                std::cout<<"No image data"<<std::endl;
-            }
-            else{
-                for (int i = 0; i<=79; i++){
+            if (imgData != nullptr){
+                for (int i = 0; i <= 80; i++){
                     std::cout<<imgData[i]<<" ";
                 }
-            std::cout << std::endl;
+                std::cout << std::endl;
+            }
+            else{
+                std::cout<<"No image data"<<std::endl;
             }
         }

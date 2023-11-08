@@ -104,7 +104,7 @@
          * @param const reference to a CardType object
          */
         void Card::setType(const CardType& type){
-            this->cardType_ = type;
+            cardType_ = type;
         }
 
         /**
@@ -119,7 +119,7 @@
          * @param: const reference to an instruction 
          */
         void Card::setInstruction(const std::string& instruction){
-            this->instruction_ = instruction;
+            instruction_ = instruction;
         }
 
         /**
@@ -134,7 +134,7 @@
          * @param pointer to an array of integers
          */
         void Card::setImageData(int* data){
-            this->bitmap_ = data;
+            bitmap_ = data;
         }
 
         /**
@@ -150,5 +150,5 @@
          * @param: const reference to a boolean
          */
         void Card::setDrawn(const bool& drawn){
-            this->drawn_ = drawn;
+            drawn_ = drawn;
         }

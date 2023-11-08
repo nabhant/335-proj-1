@@ -59,4 +59,5 @@
                     std::cout<<imgData[i]<<" ";
                 }
             }
+            std::cout << std::endl;
         }

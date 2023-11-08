@@ -37,7 +37,7 @@
         void PointCard::Print() const{
             std::cout<<"Type: "<<getType()<<std::endl;
             std::cout<<"Points: "<<getInstruction()<<std::endl;
-            std::cout<<"Card:"<<std::endl;
+            std::cout<<"Card: "<<std::endl;
             const int* imgData = getImageData();
             if (imgData == nullptr)
                 std::cout<<"No image data"<<std::endl;
@@ -46,4 +46,5 @@
                     std::cout<<imgData[i]<<" ";
                 }
             }
+            std::cout << std::endl;
         }

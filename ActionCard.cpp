@@ -52,7 +52,7 @@
             std::cout<<"Card: "<<std::endl;
             const int* imgData = getImageData();
             if (imgData != nullptr){
-                for (int i = 0; i <= 80; i++){
+                for (int i = 0; i < 80; i++){
                     std::cout<<imgData[i]<<" ";
                 }
                 std::cout << std::endl;

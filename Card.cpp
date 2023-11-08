@@ -1,3 +1,5 @@
+#include <iostream>
+#include <string>
 #include "Card.hpp"
 
 // Big Five and Constructor
@@ -95,7 +97,7 @@
              return "POINT_CARD";
              
             else
-                return "ACTION CARD";
+                return "ACTION_CARD";
             }
         /**
          * @post: set the card type

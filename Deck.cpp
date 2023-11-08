@@ -30,7 +30,7 @@
          * @return the right hand value of type CardType 
          */
         template <typename CardType>
-        Deck<CardType>::CardType&& Draw(){
+       CardType&& Deck<CardType>::Draw(){
             if(!isEmpty()){
                 CardType&& drawnCard = std::move(cards_.back());
                 cards_.pop_back();
@@ -73,5 +73,5 @@
          */
         template <typename CardType>
         std::vector<CardType> Deck<CardType>::getDeck() const{
-            return cards_.;
+            return cards_;
         }

@@ -1,11 +1,12 @@
 #include "ActionCard.hpp"
+#include <iostream>
 
 /**
          * @post: Construct a new Action Card object
         */
         ActionCard::ActionCard(){
             setType(ACTION_CARD);
-        }
+        };
 
         /**
          * @return true if the card is playable, false otherwise

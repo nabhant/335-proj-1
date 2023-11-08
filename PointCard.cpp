@@ -1,5 +1,6 @@
-#include "PointCard.hpp"
 
+#include "PointCard.hpp"
+#include <iostream>
 
 /**
          * @post: Construct a new Point Card object

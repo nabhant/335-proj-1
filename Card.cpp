@@ -31,19 +31,17 @@
          * @return this Card object
          */
         Card& Card::operator=(const Card& rhs){
-            if (this == &rhs){
-                return *this; 
+            if (this != &rhs){
+                if (bitmap_!= nullptr){
+                    delete[] bitmap_;
+                    bitmap_ = nullptr;
+                }
+                cardType_ = rhs.cardType_;
+                instruction_ = rhs.instruction_;
+                bitmap_ = new int[80];
+                std::copy(rhs.bitmap_, rhs.bitmap_ + 80, bitmap_);
+                drawn_ = rhs.drawn_;
             }
-
-            if (bitmap_!= nullptr){
-                delete[] bitmap_;
-                bitmap_ = nullptr;
-            }
-            cardType_ = rhs.cardType_;
-            instruction_ = rhs.instruction_;
-            bitmap_ = new int[80];
-            std::copy(rhs.bitmap_, rhs.bitmap_ + 80, bitmap_);
-            drawn_ = rhs.drawn_;
             return *this;
         }
 
@@ -66,16 +64,15 @@
          * @return this card object
         */
         Card& Card::operator=(Card&& rhs){
-            if (this == &rhs){
-                return *this;
+            if (this != &rhs){
+                delete [] bitmap_;
+                bitmap_ = rhs.bitmap_;
+                rhs.bitmap_ = nullptr;
+                cardType_ = rhs.cardType_;
+                instruction_ = std::move(rhs.instruction_);
+                drawn_ = rhs.drawn_;
+                rhs.drawn_ = false;
             }
-            delete [] bitmap_;
-            bitmap_ = rhs.bitmap_;
-            rhs.bitmap_ = nullptr;
-            cardType_ = rhs.cardType_;
-            instruction_ = std::move(rhs.instruction_);
-            drawn_ = rhs.drawn_;
-            rhs.drawn_ = false;
             return *this;
         }
 

@@ -62,7 +62,7 @@
     void Player::play(ActionCard&& card) {
         std::cout<<"PLAYING ACTION CARD: ";
         if(card.getInstruction() == "REVERSE HAND") {    // Check which card and play its action
-            std::cout <<card.getInstruction() << std::endl;
+            std::cout <<"REVERSE HAND" << std::endl;
             if(opponent_ != nullptr) {
                 Hand temp = getHand();
                 setHand(opponent_->getHand());
@@ -70,7 +70,7 @@
             }
         }
         else if (card.getInstruction() == "SWAP HAND WITH OPPONENT") {
-            std::cout <<card.getInstruction() << std::endl;
+            std::cout <<"SWAP HAND WITH OPPONENT" << std::endl;
             hand_.Reverse();
         }
         else {
@@ -87,14 +87,14 @@
             }
 
             if (words[0] == "PLAY") {
-                std::cout << card.getInstruction() << std::endl;
+                std::cout << "PLAY" << std::endl;
                 int count = std::stoi(words[1]);
                 for (int i = 0; i < count; i++) {
                     playPointCard();
                 }
             }
             else if (words[0] == "DRAW") {
-                std::cout << card.getInstruction() << std::endl;
+                std::cout << "DRAW" << std::endl;
                 int count = std::stoi(words[1]);
                 for (int i = 0; i < count; i++) {
                     drawPointCard();

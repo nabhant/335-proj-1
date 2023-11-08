@@ -93,11 +93,13 @@
          * @return the string representation of the card type
          */
         std::string Card::getType() const{
-            if (cardType_ == POINT_CARD)      
-             return "POINT_CARD";
+            if (cardType_ == POINT_CARD){      
+                return "POINT_CARD";
+            }
              
-            else
+            else if(cardType_ == ACTION_CARD){
                 return "ACTION_CARD";
+            }
             }
         /**
          * @post: set the card type

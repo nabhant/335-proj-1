@@ -17,7 +17,7 @@
            if(getInstruction().empty() || !getDrawn()){
                 return false;
             }
-            for(char i = 0; i < getInstruction().size(); i++){
+            for(char i : getInstruction()){
                 if (!isdigit(i)){
                     return false;
                 }

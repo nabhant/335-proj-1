@@ -82,15 +82,9 @@
          * @post: Reverse the hand
          */
         void Hand::Reverse(){
-            int i = 0;
-            int j = cards_.size()-1;
-
-            while (i < j) {
-                std::swap(cards_[i], cards_[j]);
-                i++;
-                j--;
+            std::reverse(cards_.begin(), cards_.end());
             }
-        }
+        
 
         /**
          * @post: Play the card at the front of the hand, removing it from the hand

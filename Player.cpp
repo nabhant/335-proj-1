@@ -60,16 +60,17 @@
     * PLAYING ACTION CARD: [instruction]
     */
     void Player::play(ActionCard&& card) {
-        if(card.getInstruction() == "SWAP HAND WITH OPPONENT") {    // Check which card and play its action
-            std::cout << "PLAYING ACTION CARD: SWAP HAND WITH OPPONENT" << std::endl;
+        std::cout<<"PLAYING ACTION CARD: ";
+        if(card.getInstruction() == "REVERSE HAND") {    // Check which card and play its action
+            std::cout <<card.getInstruction() << std::endl;
             if(opponent_ != nullptr) {
                 Hand temp = getHand();
                 setHand(opponent_->getHand());
                 opponent_->setHand(temp);
             }
         }
-        else if (card.getInstruction() == "REVERSE HAND") {
-            std::cout << "PLAYING ACTION CARD: REVERSE HAND" << std::endl;
+        else if (card.getInstruction() == "SWAP HAND WITH OPPONENT") {
+            std::cout <<card.getInstruction() << std::endl;
             hand_.Reverse();
         }
         else {
@@ -86,14 +87,14 @@
             }
 
             if (words[0] == "PLAY") {
-                std::cout << "PLAYING ACTION CARD: PLAY" << std::endl;
+                std::cout << card.getInstruction() << std::endl;
                 int count = std::stoi(words[1]);
                 for (int i = 0; i < count; i++) {
                     playPointCard();
                 }
             }
             else if (words[0] == "DRAW") {
-                std::cout << "PLAYING ACTION CARD: DRAW" << std::endl;
+                std::cout << card.getInstruction() << std::endl;
                 int count = std::stoi(words[1]);
                 for (int i = 0; i < count; i++) {
                     drawPointCard();

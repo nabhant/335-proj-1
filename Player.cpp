@@ -87,14 +87,14 @@
             }
 
             if (words[0] == "PLAY") {
-                std::cout << "PLAYING ACTION CARD: PLAY" << std::endl;
+                std::cout << "PLAYING ACTION CARD: " << card.getInstruction() << std::endl;
                 int count = std::stoi(words[1]);
                 for (int i = 0; i < count; i++) {
                     playPointCard();
                 }
             }
             else if (words[0] == "DRAW") {
-                std::cout << "PLAYING ACTION CARD: DRAW" << std::endl;
+                std::cout << "PLAYING ACTION CARD: "<< card.getInstruction() << std::endl;
                 int count = std::stoi(words[1]);
                 for (int i = 0; i < count; i++) {
                     drawPointCard();

@@ -74,7 +74,7 @@
             }
         }
         else {
-            std::vector<std::string> words;
+            std::vector<std::string> words;     // Break the instruction down word by word and store it in a vector
             std::string word = "";
             for (int i = 0; i < card.getInstruction().size(); i++) {
                 if(card.getInstruction()[i] == ' ') {
@@ -82,13 +82,13 @@
                     word = "";
                 }
                 else {
-                    word += (card.getInstruction()[i]);
+                    word += (card.getInstruction()[i]);    
                 }
             }
 
             if (words[0] == "PLAY") {
                 std::cout << "PLAYING ACTION CARD: " << card.getInstruction() << std::endl;
-                int count = std::stoi(words[1]);
+                int count = std::stoi(words[1]);    // The second word in the instruction is the number of cards to draw or play
                 for (int i = 0; i < count; i++) {
                     playPointCard();
                 }

@@ -20,7 +20,7 @@
         bool ActionCard::isPlayable(){
             if (!getDrawn()){
                 return false;
-            }
+            };
             
             // Defining regular expressions for the instructions
             std::regex validInstruction("(DRAW|PLAY) (\\d+) CARD\\(S\\)|REVERSE HAND|SWAP HAND WITH OPPONENT");
@@ -33,7 +33,7 @@
             else{
                 return false;
             }
-        }
+        };
         
 
         
@@ -52,7 +52,7 @@
             std::cout<<"Card: "<<std::endl;
             const int* imgData = getImageData();
             if (imgData != nullptr){
-                for (int i = 0; i < 80; i++){
+                for (int i = 0; i < 80; i++){   // Print every number in the bitmap
                     std::cout<<imgData[i]<<" ";
                 }
                 std::cout << std::endl;
@@ -61,4 +61,4 @@
                 std::cout<<"No image data"<<std::endl;
             }
             
-        }
+        };

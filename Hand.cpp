@@ -19,7 +19,7 @@
          */
         Hand::Hand(const Hand& other){
             cards_ = other.cards_;
-        }
+        };
             
         /**
          * Copy Assignment Operator
@@ -32,7 +32,7 @@
             }
             cards_ = other.cards_;
             return *this;
-        }
+        };
 
         /**
          * Move Constructor
@@ -40,7 +40,7 @@
          */
         Hand::Hand(Hand&& other){
             cards_ = std::move(other.cards_);
-        }
+        };
 
         /**
          * 
@@ -54,14 +54,14 @@
             }
             cards_ = std::move(other.cards_);
             return *this;
-        }
+        };
 
         /**
          * @return Hand
          */
         const std::deque<PointCard>& Hand::getCards() const{
             return cards_;
-        }
+        };
         
         /**
          * @post: Add a card to the hand
@@ -70,21 +70,21 @@
         void Hand::addCard(PointCard&& card){
             card.setDrawn(true);
             cards_.push_back(std::move(card));
-        }
+        };
 
         /**
          * @return true if hand is empty, false otherwise
          */
         bool Hand::isEmpty() const{
             return cards_.empty();
-        }
+        };
 
         /**
          * @post: Reverse the hand
          */
         void Hand::Reverse(){
             std::reverse(cards_.begin(), cards_.end());
-            }
+            };
         
 
         /**
@@ -106,4 +106,4 @@
                 cards_.pop_front();
                 return points_;
             }
-        }
+        };

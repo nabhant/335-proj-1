@@ -13,7 +13,7 @@
         template <typename CardType>
         Deck<CardType>::Deck::~Deck(){
             cards_.clear();      
-        }
+        };
 
         /**
          * @post: Add a Card to the Deck
@@ -22,7 +22,7 @@
         template <typename CardType>
         void Deck<CardType>::AddCard(const CardType& card){
             cards_.push_back(card);
-        }
+        };
 
         /**
          * @post: Draw a card from the deck
@@ -36,7 +36,7 @@
                 cards_.pop_back();
                 return std::move(drawnCard);
             }
-        }
+        };
 
         /**
          * @return if the deck is empty 
@@ -44,7 +44,7 @@
         template <typename CardType>
         bool Deck<CardType>::IsEmpty() const{
             return cards_.empty();
-        }
+        };
         
 
         /**
@@ -58,7 +58,7 @@
         void Deck<CardType>::Shuffle(){
             std::mt19937 seed_(2028358904);  // Initialize the randomizer
             std::shuffle(cards_.begin(), cards_.end(), seed_);
-        }
+        };
 
         /**
          * @return the size of the deck 
@@ -66,7 +66,7 @@
         template <typename CardType>
         int Deck<CardType>::getSize() const{
             return cards_.size();
-        }
+        };
 
         /**
          * @return the vector of cards in the deck 
@@ -74,4 +74,4 @@
         template <typename CardType>
         std::vector<CardType> Deck<CardType>::getDeck() const{
             return cards_;
-        }
+        };

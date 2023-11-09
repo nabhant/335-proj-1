@@ -10,7 +10,7 @@
         Card::~Card(){
             delete[] bitmap_;
             bitmap_ = nullptr;
-        }
+        };
 
         /**
          * Copy Constructor
@@ -23,7 +23,7 @@
             bitmap_ = new int[80];
             std::copy(rhs.bitmap_, rhs.bitmap_ + 80, bitmap_);  // Creating a new bitmap and copying the rhs using
             drawn_ = rhs.drawn_;
-        }
+        };
 
         /**
          * Copy Assignment Operator
@@ -44,7 +44,7 @@
             std::copy(rhs.bitmap_, rhs.bitmap_ + 80, bitmap_);
             drawn_ = rhs.drawn_;
             return *this;
-        }
+        };
 
         /**
          * Move Constructor
@@ -57,7 +57,7 @@
             rhs.bitmap_ = nullptr;
             drawn_ = rhs.drawn_;
             rhs.drawn_ = false;
-        }
+        };
 
         /**
          * Move assignment operator
@@ -76,7 +76,7 @@
             drawn_ = rhs.drawn_;
             rhs.drawn_ = false;
             return *this;
-        }
+        };
 
         /**
          * Default Constructor
@@ -86,7 +86,7 @@
             instruction_ = "";
             bitmap_ = new int[80];
             drawn_ = false;
-        }
+        };
 
         /**
          * @return the string representation of the card type
@@ -99,21 +99,21 @@
             else if(cardType_ == ACTION_CARD){
                 return "ACTION_CARD";
             }
-            }
+        };
         /**
          * @post: set the card type
          * @param const reference to a CardType object
          */
         void Card::setType(const CardType& type){
             cardType_ = type;
-        }
+        };
 
         /**
          * @return the string representation of the card instruction
         */
         const std::string& Card::getInstruction() const{ 
             return instruction_;
-            }
+        };
 
         /**
          * @post: set the card instruction
@@ -121,14 +121,14 @@
          */
         void Card::setInstruction(const std::string& instruction){
             instruction_ = instruction;
-        }
+        };
 
         /**
          * @return the image data
          */
         const int* Card::getImageData() const{
             return bitmap_;
-        }
+        };
 
         /**
          * @post: Set the image data
@@ -136,14 +136,14 @@
          */
         void Card::setImageData(int* data){
             bitmap_ = data;
-        }
+        };
 
         /**
          * @return the drawn status of the card
         */
         bool Card::getDrawn() const{
             return drawn_;
-        }
+        };
 
         /**
          * @post: set the drawn status of the card
@@ -152,4 +152,4 @@
          */
         void Card::setDrawn(const bool& drawn){
             drawn_ = drawn;
-        }
+        };

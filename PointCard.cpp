@@ -7,7 +7,7 @@
          */
         PointCard::PointCard(){
              setType(POINT_CARD);
-        }
+        };
         
         /**
          * @return true if the card is playable, false otherwise
@@ -23,7 +23,7 @@
                 }
             }
             return true;
-        }
+        };
 
         /**
          * @post: Print the Point Card in the following format:
@@ -48,4 +48,4 @@
             else{
                 std::cout<<"No image data"<<std::endl;
             }
-        }
+        };
